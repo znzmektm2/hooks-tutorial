@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useRef } from "react";
 
 const getAverage = (numbers) => {
-  console.log("평균값 계산 중..");
+  console.log("getAverage", numbers);
   if (numbers.length === 0) return 0;
   const sum = numbers.reduce((a, b) => a + b);
   return sum / numbers.length;
@@ -14,6 +14,7 @@ const Average = () => {
 
   const onChange = useCallback((e) => {
     setNumber(e.target.value);
+    console.log("onChange useCallback []", list, number);
   }, []); // 컴포넌트가 처음 렌더링될 때만 함수 생성
 
   const onInsert = useCallback(
@@ -22,6 +23,7 @@ const Average = () => {
       setList(nextList);
       setNumber("");
       inputEl.current.focus();
+      console.log("onInsert useCallback [number, list]", list, number);
     },
     [number, list]
   ); // number 혹은 list가 바뀌었을 때만 함수 생성

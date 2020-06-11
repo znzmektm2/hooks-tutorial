@@ -4,7 +4,7 @@ import Info from "./Info";
 import Average from "./Average";
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(true);
   return (
     <div>
       <Counter />
